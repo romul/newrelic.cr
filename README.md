@@ -28,7 +28,7 @@ cp lib/newrelic/bin/libnewrelic.a /usr/local/lib/libnewrelic.a
 cp lib/newrelic/bin/newrelic-daemon newrelic-daemon
 ```
 
-Note: Copies of `libnewrelic.a` & `newrelic-daemon` are built for Linux x86_64 for 1.1.0 version of C-SDK, if you would like another target platform or version, please follow build instructions from [C-SDK](https://github.com/newrelic/c-sdk/#building-the-c-sdk)
+**Note:** Copies of `libnewrelic.a` & `newrelic-daemon` are built for Linux x86_64 for 1.1.0 version of C-SDK, if you would like another target platform or version, please follow build instructions from [C-SDK](https://github.com/newrelic/c-sdk/#building-the-c-sdk)
 
 5. export NEWRELIC_LICENSE_KEY="your license key"
 
@@ -48,6 +48,14 @@ NewRelic.web_transaction("transaction_name") do
     # some other code
   end
 end
+```
+
+**Note:** Don't forget to run `newrelic-daemon` on the same machine. Your application, which makes API calls, reports data to the daemon over a socket; in turn, the daemon reports the data to New Relic.
+
+For debug purposes you can start the daemon in the foreground with:
+
+```bash
+./newrelic-daemon -f --logfile stdout --loglevel debug
 ```
 
 
