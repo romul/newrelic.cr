@@ -1,0 +1,9 @@
+name: newrelic
+version: 1.1.0
+
+authors:
+  - Roman Smirnov <POMAHC@gmail.com>
+
+crystal: 0.29.0
+
+license: MIT
